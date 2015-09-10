@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 0.12.2
+
+dependencies:
+  pre:
+    - bash ./bin/BSLocal.sh start
+  override:
+    - npm install
+
+test:
+  override:
+    - browserstack-runner
+  post:
+    - bash ./bin/BSLocal.sh stop
