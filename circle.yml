@@ -15,6 +15,6 @@ dependencies:
 
 test:
   override:
-    - karma start karma.ci.js
+    - ./node_modules/.bin/karma start karma.ci.js
   post:
     - bash ./bin/BSLocal.sh stop
