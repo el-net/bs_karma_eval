@@ -4,6 +4,11 @@ machine:
 
 dependencies:
   pre:
+    # replace local binary of mac-os with linux binary
+    - curl https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip > BrowserStackLocal-linux.zip
+    - unzip -o BrowserStackLocal-linux.zip; chmod 755 BrowserStackLocal
+    - rm bin/BrowserStackLocal; mv BrowserStackLocal bin/BrowserStackLocal
+    # 
     - bash ./bin/BSLocal.sh start
   override:
     - npm install
