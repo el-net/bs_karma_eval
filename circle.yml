@@ -15,6 +15,6 @@ dependencies:
 
 test:
   override:
-    - browserstack-runner
+    - karma start karma.ci.js
   post:
     - bash ./bin/BSLocal.sh stop
