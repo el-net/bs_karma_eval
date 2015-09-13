@@ -18,7 +18,8 @@ module.exports = function(config) {
     //what browsers to use
     browsers  : [ 'Chrome', 'Firefox', 'Safari',
       'bs_firefox_mac', 
-      'bs_iphone5'
+      'bs_iphone5',
+      'bs_iOS_7','bs_iOS_8','bs_Android_4_1','bs_Android_4_2'
     ],
 
     preprocessors: {
