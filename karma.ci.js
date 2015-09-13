@@ -12,6 +12,7 @@ module.exports = function(config) {
     basePath  : process.cwd(),
     files     : [
       'node_modules/expect.js/index.js',
+      'src/**/*.js',
       'test/client/**/*.js'      
     ],
 
