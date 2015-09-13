@@ -6,7 +6,7 @@ describe("client", function() {
   context("client utility", function() { 
     it("has absolutely no bugs", function() { 
 console.log("look:" + navigator.userAgent); 
-      //throw new Error('oups??')
+      if (Date.now() % 2) throw new Error('oups??')
     });
   })
 })
