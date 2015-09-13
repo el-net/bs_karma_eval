@@ -15,6 +15,9 @@ dependencies:
 
 test:
   override:
+    #server tests
+    - ./node_modules/.bin/mocha
+    #client tests
     - ./node_modules/.bin/karma start karma.ci.js
   post:
     - bash ./bin/BSLocal.sh stop
