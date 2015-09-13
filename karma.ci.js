@@ -16,7 +16,7 @@ module.exports = function(config) {
     ],
 
     //what browsers to use
-    browsers  : [ 'Chrome',
+    browsers  : [ 'Chrome', 'Firefox', 'Safari',
       'bs_firefox_mac', 
       'bs_iphone5'
     ],
@@ -41,7 +41,35 @@ module.exports = function(config) {
         device: 'iPhone 5',
         os: 'ios',
         os_version: '6.0'
-      }
+      },
+      bs_iOS_7: {
+          base: 'BrowserStack',
+          device: 'iPhone 5S',
+          os: 'ios',
+          os_version: '7.0',
+          real_mobile: 'false',
+      },
+      bs_iOS_8: {
+          base: 'BrowserStack',
+          device: 'iPhone 6',
+          os: 'ios',
+          os_version: '8.3',
+          real_mobile: 'false',
+      },
+      bs_Android_4_1: {
+          base: 'BrowserStack',
+          browser: 'Android Browser',
+          os: 'android',
+          os_version: '4.1',
+          real_mobile: 'false',
+      },
+      bs_Android_4_2: {
+          base: 'BrowserStack',
+          browser: 'Android Browser',
+          os: 'android',
+          os_version: '4.2',
+          real_mobile: 'false',
+      }      
     },
     client: {
       captureConsole: true,
