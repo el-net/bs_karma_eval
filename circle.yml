@@ -12,6 +12,8 @@ dependencies:
     - bash ./bin/BSLocal.sh start
   override:
     - npm install
+  post: 
+    - node -e "require('./lib/server').listen(3333);setTimeout(function() { process.exit() }, 300000 )" &
 
 test:
   override:
