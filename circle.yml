@@ -12,14 +12,13 @@ dependencies:
     - bash ./bin/BSLocal.sh start
   override:
     - npm install
-  post: 
-    - node -e "require('./lib/server').listen(3333);setTimeout(function() { process.exit() }, 300000 )" &
 
 test:
   override:
     #server tests
     - ./node_modules/.bin/mocha
     #client tests
+    - node -e "require('./lib/server').listen(3333);setTimeout(function() { process.exit() }, 300000 )" &
     - ./node_modules/.bin/karma start karma.ci.js
   post:
     - bash ./bin/BSLocal.sh stop
