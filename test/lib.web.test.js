@@ -1,4 +1,4 @@
-var app = require('../../lib/server')
+var app = require('../lib/server')
   , request = require('request')
   ;
 module.exports = 
@@ -22,7 +22,7 @@ module.exports =
           function(done) {
               svr.close(done);
           }
-        , "GET /next"  :
+        , "GET /next - returns an id"  :
           function(done) {
               request("http://localhost:3333/next", function(err, req, body) {
                   Should.not.exist(err);
@@ -38,7 +38,7 @@ module.exports =
                   done()
               })
           }
-        , "POST /id/:id" : 
+        , "POST /id/:id - accepts post of messages" : 
           function(done) {
               request(
               { url     : "http://localhost:3333/id/" + id
@@ -58,7 +58,6 @@ module.exports =
                       body.should.eql('{"id":"'+id+'","last":[{"msg":[1,2,3]}]}')
                       done()
                   })
-                  
               }
           }
         }

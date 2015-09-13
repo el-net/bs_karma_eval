@@ -24,6 +24,13 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.1.1",
-    "mocha": "^2.3.0"
+    "mocha": "^2.3.0",
+    "mocha-ui-exports": "^0.2.2",
+    "request": "^2.61.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
+    "express": "^4.13.3"
   }
 }
