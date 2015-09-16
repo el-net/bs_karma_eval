@@ -27,7 +27,13 @@ module.exports = function(config) {
       //TODO - start mock server
       //TODO - pack, uglify, minify, obfuscate
     },
-    reporters : ['mocha','coverage'],
+    reporters : ['mocha','coverage','junit'],
+
+    junitReporter: {
+      outputDir: process.env.CIRCLE_TEST_REPORTS || "./", // results will be saved as $outputDir/$browserName.xml
+      //outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
+      suite: 'ci' // suite will become the package name attribute in xml testsuite element
+    }
     
     // define custom browsers
     customLaunchers: {
