@@ -13,6 +13,10 @@ module.exports = function(config) {
       accessKey: process.env.BROWSERSTACK_KEY
     },
 
+    coverageReporter: {
+      dir : process.env.CIRCLE_ARTIFACTS || "./coverage"
+    },
+
     //what browsers to use
     browsers  : [ 'Chrome', 'Firefox',
       'bs_firefox_mac', 
