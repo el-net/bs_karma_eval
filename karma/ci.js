@@ -1,19 +1,7 @@
 module.exports = function(config) {
-  config.set({
+  require('./karma.base.js')(config).set({
     singleRun : true,
     autoWatch : false,
-    port      : 9876,
-    logLevel  : config.LOG_INFO,
-    colors    : true,
-
-    frameworks: ['mocha'],
-    
-    basePath  : process.cwd(),
-    files     : [
-      'node_modules/expect.js/index.js',
-      'src/**/*.js',
-      'test/client/**/*.js'      
-    ],
 
     //what browsers to use
     browsers  : [ 'Chrome', 'Firefox', 'Safari',
@@ -22,18 +10,11 @@ module.exports = function(config) {
       'bs_iOS_7','bs_iOS_8','bs_Android_4_1','bs_Android_4_2'
     ],
 
-    preprocessors: {
-      'src/**/*.js': ['coverage']
-      //TODO - start mock server
-      //TODO - pack, uglify, minify, obfuscate
-    },
-    reporters : ['mocha','coverage','junit'],
-
     junitReporter: {
-      outputDir: process.env.CIRCLE_TEST_REPORTS || "./", // results will be saved as $outputDir/$browserName.xml
+      outputDir: process.env.CIRCLE_TEST_REPORTS || "./coverage", // results will be saved as $outputDir/$browserName.xml
       //outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
       suite: 'ci' // suite will become the package name attribute in xml testsuite element
-    }
+    },
     
     // define custom browsers
     customLaunchers: {
@@ -80,9 +61,6 @@ module.exports = function(config) {
           real_mobile: 'false',
       }      
     },
-    client: {
-      captureConsole: true,
-    },    
      // global config of your BrowserStack account
     browserStack: {
       username : process.env.BROWSERSTACK_USERNAME,
