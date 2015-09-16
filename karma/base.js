@@ -23,7 +23,7 @@ module.exports = function(config) {
     junitReporter: {
       outputDir: process.env.CIRCLE_TEST_REPORTS || "./", // results will be saved as $outputDir/$browserName.xml
       //outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
-      suite: 'ci' // suite will become the package name attribute in xml testsuite element
+      suite: 'PROJ' // suite will become the package name attribute in xml testsuite element
     },
     
     client: {

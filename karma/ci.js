@@ -1,7 +1,17 @@
 module.exports = function(config) {
-  require('./karma.base.js')(config).set({
+  require('./base.js')(config).set({
     singleRun : true,
     autoWatch : false,
+
+    junitReporter: {
+      outputDir: process.env.CIRCLE_TEST_REPORTS, // results will be saved as $outputDir/$browserName.xml
+    },
+
+     // global config of your BrowserStack account
+    browserStack: {
+      username : process.env.BROWSERSTACK_USERNAME,
+      accessKey: process.env.BROWSERSTACK_KEY
+    },
 
     //what browsers to use
     browsers  : [ 'Chrome', 'Firefox', 'Safari',
@@ -9,12 +19,6 @@ module.exports = function(config) {
       'bs_iphone5',
       'bs_iOS_7','bs_iOS_8','bs_Android_4_1','bs_Android_4_2'
     ],
-
-    junitReporter: {
-      outputDir: process.env.CIRCLE_TEST_REPORTS || "./coverage", // results will be saved as $outputDir/$browserName.xml
-      //outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
-      suite: 'ci' // suite will become the package name attribute in xml testsuite element
-    },
     
     // define custom browsers
     customLaunchers: {
@@ -60,11 +64,6 @@ module.exports = function(config) {
           os_version: '4.2',
           real_mobile: 'false',
       }      
-    },
-     // global config of your BrowserStack account
-    browserStack: {
-      username : process.env.BROWSERSTACK_USERNAME,
-      accessKey: process.env.BROWSERSTACK_KEY
-    }
+    } 
  })
 }
