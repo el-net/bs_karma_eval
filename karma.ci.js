@@ -6,7 +6,6 @@ module.exports = function(config) {
     logLevel  : config.LOG_INFO,
     colors    : true,
 
-    reporters : ['mocha'],
     frameworks: ['mocha'],
     
     basePath  : process.cwd(),
@@ -24,10 +23,12 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
+      'src/**/*.js': ['coverage']
       //TODO - start mock server
       //TODO - pack, uglify, minify, obfuscate
     },
-
+    reporters : ['mocha','coverage'],
+    
     // define custom browsers
     customLaunchers: {
       bs_firefox_mac: {
